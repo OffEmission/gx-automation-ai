@@ -503,6 +503,32 @@ footer {
   .cta-section { padding: 60px 20px; }
   footer { padding: 30px 20px; }
 }
+  /* ── ENERGY AUDIT ── */
+.audit-section { background: var(--forest); }
+.audit-section .section-eyebrow { color: #B5E61D; }
+.audit-section .section-title { color: var(--white); }
+.audit-section .section-sub { color: rgba(255,255,255,0.6); }
+.audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+.audit-left { background: rgba(10,24,10,0.7); border: 1px solid rgba(181,230,29,0.2); border-top: 3px solid #B5E61D; border-radius: 12px; padding: 28px 24px; }
+.audit-impact { background: #B5E61D; border-radius: 10px; padding: 20px 22px; margin-bottom: 16px; display: flex; align-items: flex-end; gap: 16px; }
+.audit-impact-num { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--forest); line-height: 1; }
+.audit-impact-label { font-size: 12px; color: var(--forest); font-weight: 700; margin-bottom: 8px; }
+.audit-impact-sub { font-size: 10px; color: rgba(26,58,42,0.65); }
+.audit-pts { display: flex; flex-direction: column; gap: 10px; }
+.audit-pt { background: rgba(255,255,255,0.04); border: 1px solid rgba(181,230,29,0.15); border-radius: 8px; padding: 11px 14px; display: flex; align-items: flex-start; gap: 10px; }
+.audit-pt-icon { font-size: 18px; flex-shrink: 0; }
+.audit-pt-title { font-size: 12px; font-weight: 700; color: #B5E61D; margin-bottom: 2px; }
+.audit-pt-desc { font-size: 10px; color: rgba(255,255,255,0.5); }
+.audit-right { display: flex; flex-direction: column; gap: 14px; }
+.audit-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(151,188,98,0.18); border-radius: 10px; padding: 18px 20px; }
+.audit-card-title { font-size: 13px; font-weight: 700; color: var(--moss); margin-bottom: 10px; }
+.audit-card-items { display: flex; flex-direction: column; gap: 5px; }
+.audit-card-item { font-size: 11px; color: rgba(255,255,255,0.65); display: flex; gap: 7px; }
+.audit-card-item::before { content: '✓'; color: var(--moss); font-weight: 700; flex-shrink: 0; }
+.audit-link { background: rgba(181,230,29,0.1); border: 1px solid rgba(181,230,29,0.25); border-radius: 10px; padding: 16px 20px; }
+.audit-link-title { font-size: 13px; font-weight: 700; color: #B5E61D; margin-bottom: 6px; }
+.audit-link-desc { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+  
 </style>
 </head>
 <body>
@@ -803,7 +829,63 @@ footer {
     </div>
   </div>
 </section>
+  <!-- ENERGY AUDIT -->
+<section class="audit-section" id="audit">
+  <div class="section-inner">
+    <div class="section-eyebrow">⚡ ENTRY SERVICE</div>
+    <h2 class="section-title">AI省エネ診断｜まず省エネから始められます</h2>
+    <p class="section-sub">GXに取り組む前に、まず光熱費を下げたい企業へ。入力5分で省エネ施策・ROI・補助金活用をAIが即時診断します。</p>
+    <div class="audit-grid">
+      <div class="audit-left">
+        <div class="audit-impact">
+          <div><div class="audit-impact-num">10〜30%</div></div>
+          <div>
+            <div class="audit-impact-label">想定エネルギー削減率</div>
+            <div class="audit-impact-sub">入力5分・診断は即時出力</div>
+          </div>
+        </div>
+        <div class="audit-pts">
+          <div class="audit-pt">
+            <div class="audit-pt-icon">⏱</div>
+            <div><div class="audit-pt-title">入力5分・即時出力</div><div class="audit-pt-desc">フォーム入力後、AIが即座に診断レポートを生成します</div></div>
+          </div>
+          <div class="audit-pt">
+            <div class="audit-pt-icon">📋</div>
+            <div><div class="audit-pt-title">8セクション定型レポート</div><div class="audit-pt-desc">削減施策・ROI・補助金活用まで網羅した報告書を自動作成</div></div>
+          </div>
+          <div class="audit-pt">
+            <div class="audit-pt-icon">💰</div>
+            <div><div class="audit-pt-title">初期診断コスト1/10</div><div class="audit-pt-desc">従来の省エネ診断士コストを大幅に削減して提供</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="audit-right">
+        <div class="audit-card">
+          <div class="audit-card-title">📋 対象</div>
+          <div class="audit-card-items">
+            <div class="audit-card-item">工場・事業所・事務所の管理部門（自社診断）</div>
+            <div class="audit-card-item">省エネ診断士・コンサルタント（顧客向け提案ツール）</div>
+            <div class="audit-card-item">ESG・サステナビリティ担当者</div>
+          </div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-title">💴 補助金・助成金の活用</div>
+          <div class="audit-card-items">
+            <div class="audit-card-item">省エネ補助金の適用可否を自動判定</div>
+            <div class="audit-card-item">申請書類の作成支援</div>
+            <div class="audit-card-item">グリーンファイナンス活用の提案</div>
+          </div>
+        </div>
+        <div class="audit-link">
+          <div class="audit-link-title">⚡ → 🌱 省エネからGX推進へ自然につながります</div>
+          <div class="audit-link-desc">省エネ診断の削減実績は、そのままGHG排出量算定・脱炭素ロードマップ策定・Jクレジット創出へ連携。「まず省エネ」から始めて、GX推進へ自然に移行できます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+  
 <!-- THEMES -->
 <section class="themes-section" id="themes">
   <div class="section-inner">
