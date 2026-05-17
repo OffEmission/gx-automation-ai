@@ -110,7 +110,7 @@
         "name": "算定結果の精度はどのくらいですか？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "環境省が定める最新の排出係数を適用しており、排出量の算定は高精度です。ただし入力データの精度に依存するため、より正確な算定が必要な場合は伴走支援プランをご検討ください。"
+          "text": "環境省が定める最新の排出係数を適用しており、Scope1・2の算定は高精度です。ただし入力データの精度に依存するため、より正確な算定が必要な場合は伴走支援プランをご検討ください。"
         }
       },
       {
@@ -161,7 +161,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,58,42,0.9
 /* HERO */
 .hero{min-height:100vh;background:var(--forest);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 40px 80px;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(44,95,45,0.4) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(151,188,98,0.08) 0%,transparent 60%);}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(151,188,98,0.12);border:1px solid rgba(151,188,98,0.3);border-radius:20px;padding:5px 14px;font-size:11px;color:var(--moss);font-weight:600;letter-spacing:1px;margin-bottom:20px;}
 .hero-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3.6vw,46px);font-weight:800;color:var(--white);line-height:1.2;margin-bottom:16px;}
 .hero-title span{color:var(--moss);}
@@ -173,10 +173,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,58,42,0.9
 .stat-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--moss);}
 .stat-label{font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;}
 
-/* Hero visual — screenshot carousel */
-.hero-visual{position:relative;}
-.hero-screen{border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);border:1px solid rgba(151,188,98,0.2);}
-.hero-screen img{width:100%;display:block;}
+/* Hero visual — screenshot */
+.hero-visual{position:relative;display:flex;flex-direction:column;justify-content:center;}
+.hero-screen{
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,0.55);
+  border:1px solid rgba(151,188,98,0.2);
+  /* ★ 画像の自然な比率を保持 */
+  aspect-ratio:4/3;
+  background:#0a1a10;
+}
+.hero-screen img{
+  width:100%;height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+}
 .hero-screen-caption{margin-top:14px;background:rgba(151,188,98,0.1);border:1px solid rgba(151,188,98,0.25);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:8px;}
 .hero-screen-dot{width:7px;height:7px;border-radius:50%;background:var(--moss);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
