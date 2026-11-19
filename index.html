@@ -23,7 +23,7 @@
 <meta name="keywords" content="GX推進,省エネ診断,GHG排出量算定,脱炭素,補助金申請,AIエージェント,中堅・中小企業,OffEmission,テックシンカー,Jクレジット,CDP">
 <meta name="author" content="株式会社テックシンカー">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#06120C">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://gxautomation.offemission-carbonfootprint.com/">
 
 <!-- OGP -->
@@ -37,44 +37,39 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
-/* ═══ DESIGN TOKENS ═════════════════════════════════════ */
+/* ═══ DESIGN TOKENS ═════════════════════════════════════
+   明るい背景を基調にし、濃色はフッターの1か所のみ */
 :root{
-  --bg-0:#050E09;
-  --bg-1:#081A10;
-  --bg-2:#0D2418;
-  --forest:#1A3A2A;
-  --mid:#2C5F2D;
-  --moss:#97BC62;
-  --neon:#B8F36B;
-  --cyan:#3EE6C1;
-  --white:#FFFFFF;
-  --text:#E7F2EA;
-  --text-2:rgba(231,242,234,.72);
-  --text-3:rgba(231,242,234,.5);
-  --line:rgba(151,188,98,.18);
-  --line-2:rgba(151,188,98,.34);
-  --glass:rgba(255,255,255,.035);
-  --glass-2:rgba(255,255,255,.06);
-  --amber:#F7B23B;
-  --red:#FF6B6B;
-  --radius:16px;
-  --grad:linear-gradient(120deg,var(--neon) 0%,var(--cyan) 100%);
+  --bg:#FFFFFF;
+  --bg-soft:#F4F6F2;
+  --bg-tint:#EAF2EC;
+  --ink:#16221B;
+  --ink-2:#45524A;
+  --ink-3:#6A766E;
+  --line:#DCE3DA;
+  --line-2:#C5D0C3;
+  --green:#1F6B43;
+  --green-dark:#17533A;
+  --dark:#12261B;
+  --note-bg:#FFF7E8;
+  --note-line:#EED7A8;
+  --note-ink:#6A4A12;
+  --red:#C2412D;
+  --radius:12px;
   --font-jp:'Noto Sans JP',system-ui,-apple-system,'Hiragino Sans',sans-serif;
-  --font-en:'Space Grotesk','Noto Sans JP',sans-serif;
-  --font-mono:'JetBrains Mono',ui-monospace,monospace;
   --nav-h:64px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);}
 body{
   font-family:var(--font-jp);
-  color:var(--text);
-  background:var(--bg-0);
+  color:var(--ink);
+  background:var(--bg);
   line-height:1.75;
   overflow-x:hidden;
   -webkit-text-size-adjust:100%;
@@ -83,60 +78,35 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;}
 button{font-family:inherit;}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px;}
-
-/* 背景グリッド（全体共通のデジタル感） */
-body::before{
-  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(151,188,98,.045) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(151,188,98,.045) 1px,transparent 1px);
-  background-size:56px 56px;
-  mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 100%);
-}
-
-.grad-text{
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-  background-size:200% auto;animation:shimmer 6s linear infinite;
-}
-@keyframes shimmer{to{background-position:200% center;}}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px;}
+.accent{color:var(--green);}
 
 /* ═══ NAV ══════════════════════════════════════════════ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:0 clamp(16px,4vw,40px);
-  background:rgba(5,14,9,.6);backdrop-filter:blur(14px) saturate(140%);
-  -webkit-backdrop-filter:blur(14px) saturate(140%);
-  border-bottom:1px solid transparent;transition:border-color .3s,background .3s;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid transparent;transition:border-color .2s;
 }
-.nav.scrolled{background:rgba(5,14,9,.88);border-bottom-color:var(--line);}
+.nav.scrolled{border-bottom-color:var(--line);}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;}
 .nav-logo-badge{
-  position:relative;flex-shrink:0;
-  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
-  font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--bg-0);
-  background:var(--grad);box-shadow:0 0 20px rgba(184,243,107,.35);
+  flex-shrink:0;width:34px;height:34px;border-radius:8px;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#fff;background:var(--green);
 }
 .nav-logo-text{display:flex;flex-direction:column;line-height:1.25;min-width:0;}
-.nav-logo-name{font-family:var(--font-en);font-size:14px;font-weight:700;color:var(--white);white-space:nowrap;}
-.nav-logo-sub{font-size:10px;color:var(--text-3);white-space:nowrap;}
+.nav-logo-name{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap;}
+.nav-logo-sub{font-size:10px;color:var(--ink-3);white-space:nowrap;}
 .nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{
-  font-size:13px;color:var(--text-2);text-decoration:none;position:relative;padding:6px 0;transition:color .2s;
-}
-.nav-links a::after{
-  content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--grad);
-  transform:scaleX(0);transform-origin:left;transition:transform .25s;
-}
-.nav-links a:hover{color:var(--white);}
-.nav-links a:hover::after{transform:scaleX(1);}
+.nav-links a{font-size:13px;color:var(--ink-2);text-decoration:none;padding:6px 0;}
+.nav-links a:hover{color:var(--green);text-decoration:underline;text-underline-offset:4px;}
 .nav-right{display:flex;align-items:center;gap:10px;}
 .nav-burger{
-  display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--line);
-  background:var(--glass);cursor:pointer;position:relative;
+  display:none;width:44px;height:44px;border-radius:8px;border:1px solid var(--line);
+  background:#fff;cursor:pointer;position:relative;
 }
-.nav-burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--text);border-radius:2px;transition:transform .25s,opacity .25s;}
+.nav-burger span{position:absolute;left:12px;right:12px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s;}
 .nav-burger span:nth-child(1){top:15px;}
 .nav-burger span:nth-child(2){top:21px;}
 .nav-burger span:nth-child(3){top:27px;}
@@ -144,442 +114,286 @@ body::before{
 .nav.open .nav-burger span:nth-child(2){opacity:0;}
 .nav.open .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
-/* ═══ BUTTONS ══════════════════════════════════════════ */
+/* ═══ BUTTONS（単色・発光なし） ══════════════════════════ */
 .btn{
-  position:relative;overflow:hidden;isolation:isolate;
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:52px;padding:0 28px;border-radius:12px;border:none;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:50px;padding:0 26px;border-radius:8px;border:1px solid transparent;cursor:pointer;
   font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;
-  transition:transform .2s,box-shadow .25s;
+  transition:background-color .15s,border-color .15s;
 }
-.btn-primary{color:var(--bg-0);background:var(--grad);box-shadow:0 8px 30px rgba(62,230,193,.25);}
-.btn-primary::before{
-  content:'';position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
-  transform:translateX(-120%);animation:sweep 3.6s ease-in-out infinite;
-}
-@keyframes sweep{0%,55%{transform:translateX(-120%);}85%,100%{transform:translateX(120%);}}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(62,230,193,.4);}
-.btn-ghost{color:var(--text);background:var(--glass);border:1px solid var(--line-2);}
-.btn-ghost:hover{background:var(--glass-2);border-color:var(--cyan);}
-.btn-sm{min-height:42px;padding:0 18px;font-size:13px;border-radius:10px;}
-.btn .arrow{transition:transform .2s;}
-.btn:hover .arrow{transform:translateX(4px);}
+.btn-primary{color:#fff;background:var(--green);}
+.btn-primary:hover{background:var(--green-dark);}
+.btn-ghost{color:var(--green);background:#fff;border-color:var(--green);}
+.btn-ghost:hover{background:var(--bg-tint);}
+.btn-sm{min-height:40px;padding:0 16px;font-size:13px;}
 
 /* ═══ HERO ═════════════════════════════════════════════ */
 .hero{
-  position:relative;min-height:100vh;min-height:100svh;overflow:hidden;
-  display:flex;align-items:center;
-  padding:calc(var(--nav-h) + 48px) clamp(16px,4vw,40px) 72px;
-  background:
-    radial-gradient(ellipse 60% 55% at 78% 45%,rgba(62,230,193,.14),transparent 70%),
-    radial-gradient(ellipse 50% 50% at 10% 90%,rgba(184,243,107,.10),transparent 70%),
-    var(--bg-0);
-}
-#neural{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.75;}
-.hero::after{
-  content:'';position:absolute;left:0;right:0;bottom:0;height:160px;z-index:0;
-  background:linear-gradient(transparent,var(--bg-0));
+  padding:calc(var(--nav-h) + 48px) clamp(16px,4vw,40px) 56px;
+  background:var(--bg-soft);border-bottom:1px solid var(--line);
 }
 .hero-grid{
-  position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center;
+  width:100%;max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,4vw,56px);align-items:center;
 }
 .chip{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;border-radius:999px;border:1px solid var(--line-2);background:rgba(151,188,98,.08);
-  font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--neon);
+  display:inline-block;padding:5px 12px;border-radius:999px;
+  background:var(--bg-tint);border:1px solid var(--line-2);
+  font-size:12px;font-weight:700;color:var(--green);
 }
-.chip-dot{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:blink 1.6s infinite;}
-@keyframes blink{50%{opacity:.25;}}
-.hero h1{margin:22px 0 18px;}
+.hero h1{margin:20px 0 16px;}
 .hero-catch{
-  display:block;font-weight:900;color:var(--white);
-  font-size:clamp(26px,3.4vw,46px);line-height:1.3;letter-spacing:-.02em;
+  display:block;font-weight:900;color:var(--ink);
+  font-size:clamp(26px,3.2vw,42px);line-height:1.35;letter-spacing:-.01em;
 }
 .hero-catch .nowrap{white-space:nowrap;}
-.hero-catch .grad-text{display:inline;}
 .hero-sub{
-  display:block;margin-top:16px;font-weight:500;color:var(--text-2);
-  font-size:clamp(15px,1.55vw,19px);line-height:1.7;
+  display:block;margin-top:14px;font-weight:500;color:var(--ink-2);
+  font-size:clamp(15px,1.4vw,18px);line-height:1.7;
 }
-.hero-points{list-style:none;display:grid;gap:10px;margin:26px 0 32px;}
-.hero-points li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-2);}
-.hero-points .ic{
-  flex-shrink:0;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;
-  background:rgba(62,230,193,.12);border:1px solid rgba(62,230,193,.35);color:var(--cyan);font-size:12px;margin-top:1px;
-}
-.hero-points strong{color:var(--white);font-weight:700;}
+.hero-points{list-style:none;display:grid;gap:8px;margin:22px 0 28px;}
+.hero-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-2);}
+.hero-points .ic{flex-shrink:0;color:var(--green);font-weight:700;}
+.hero-points strong{color:var(--ink);}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;}
-.stat{
-  padding:16px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--line);
-  backdrop-filter:blur(6px);
-}
-.stat-num{font-family:var(--font-en);font-size:clamp(22px,2.4vw,30px);font-weight:700;line-height:1.1;}
-.stat-num small{font-size:.5em;margin-left:2px;font-family:var(--font-jp);}
-.stat-label{font-size:11px;color:var(--text-3);margin-top:6px;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;}
+.stat{padding:12px 14px;border-radius:10px;background:#fff;border:1px solid var(--line);}
+.stat-num{font-size:clamp(20px,2vw,26px);font-weight:900;line-height:1.2;color:var(--green);}
+.stat-num small{font-size:.55em;margin-left:2px;}
+.stat-label{font-size:11px;color:var(--ink-3);margin-top:4px;}
 
-/* AIコンソール風ビジュアル */
-.console{
-  position:relative;border-radius:18px;overflow:hidden;
-  background:rgba(8,26,16,.85);border:1px solid var(--line-2);
-  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(62,230,193,.06),0 0 60px rgba(62,230,193,.08);
-  transform:perspective(1400px) rotateY(-6deg) rotateX(2deg);transition:transform .6s;
+/* 本物のスクリーンショットを大きく */
+.hero-shot{margin:0;}
+.hero-shot img{
+  width:100%;height:auto;border-radius:10px;border:1px solid var(--line-2);
+  background:#fff;box-shadow:0 12px 32px rgba(22,34,27,.12);
 }
-.console:hover{transform:perspective(1400px) rotateY(0) rotateX(0);}
-.console-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.25);}
-.console-bar i{width:10px;height:10px;border-radius:50%;background:#2a3d31;}
-.console-bar i:nth-child(1){background:#ff5f57;}
-.console-bar i:nth-child(2){background:#febc2e;}
-.console-bar i:nth-child(3){background:#28c840;}
-.console-bar span{margin-left:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);}
-.console-screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a1a10;}
-.console-screen img{width:100%;height:100%;object-fit:cover;object-position:top;}
-.scanline{
-  position:absolute;left:0;right:0;height:80px;top:-80px;pointer-events:none;
-  background:linear-gradient(transparent,rgba(62,230,193,.22),transparent);
-  animation:scan 4.5s linear infinite;
-}
-@keyframes scan{to{top:100%;}}
-.console-log{
-  padding:14px 16px;border-top:1px solid var(--line);
-  font-family:var(--font-mono);font-size:12px;line-height:1.7;color:var(--text-2);min-height:96px;
-}
-.console-log .ok{color:var(--neon);}
-.console-log .k{color:var(--cyan);}
-.caret{display:inline-block;width:7px;height:14px;background:var(--cyan);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite;}
-.float-badge{
-  position:absolute;z-index:2;display:flex;align-items:center;gap:10px;
-  padding:10px 14px;border-radius:12px;
-  background:rgba(8,26,16,.9);border:1px solid var(--line-2);backdrop-filter:blur(10px);
-  box-shadow:0 12px 30px rgba(0,0,0,.45);animation:floaty 6s ease-in-out infinite;
-}
-.float-badge b{font-family:var(--font-en);font-size:18px;}
-.float-badge small{display:block;font-size:10px;color:var(--text-3);line-height:1.3;}
-.fb-1{top:18%;left:-28px;}
-.fb-2{bottom:22%;right:-22px;animation-delay:-3s;}
-@keyframes floaty{50%{transform:translateY(-10px);}}
-.hero-visual{position:relative;}
+.hero-shot figcaption{font-size:12px;color:var(--ink-3);margin-top:10px;text-align:right;}
 
-/* ═══ TICKER（差別化ポイント） ══════════════════════════ */
-.ticker{
-  position:relative;overflow:hidden;border-block:1px solid var(--line);
-  background:linear-gradient(90deg,rgba(184,243,107,.06),rgba(62,230,193,.06));padding:16px 0;
-}
-.ticker-track{display:flex;gap:16px;width:max-content;animation:marquee 34s linear infinite;}
-.ticker:hover .ticker-track{animation-play-state:paused;}
-.ticker-item{
-  display:flex;align-items:center;gap:10px;white-space:nowrap;
-  padding:8px 18px;border-radius:999px;border:1px solid var(--line-2);background:rgba(5,14,9,.6);
-  font-size:13px;font-weight:700;color:var(--text);
-}
-.ticker-item::before{content:'◆';color:var(--neon);font-size:10px;}
-@keyframes marquee{to{transform:translateX(-50%);}}
+/* ═══ 独自機能の一覧（静的） ══════════════════════════════ */
+.uniq{padding:20px clamp(16px,4vw,40px);border-bottom:1px solid var(--line);}
+.uniq ul{max-width:1140px;margin:0 auto;list-style:none;display:flex;flex-wrap:wrap;gap:8px 10px;justify-content:center;}
+.uniq li{padding:6px 14px;border-radius:999px;border:1px solid var(--line-2);font-size:13px;font-weight:700;color:var(--ink-2);background:#fff;}
 
 /* ═══ SECTIONS ═════════════════════════════════════════ */
-section{position:relative;padding:clamp(72px,9vw,120px) clamp(16px,4vw,40px);}
-.alt{background:linear-gradient(180deg,var(--bg-1),var(--bg-0));}
+section{padding:clamp(48px,6vw,80px) clamp(16px,4vw,40px);}
+.alt{background:var(--bg-soft);}
 .inner{max-width:1140px;margin:0 auto;}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;
-  font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--cyan);
-}
-.eyebrow::before{content:'';width:24px;height:1px;background:var(--cyan);}
-.h2{font-size:clamp(24px,3.4vw,40px);font-weight:900;line-height:1.35;color:var(--white);margin-bottom:16px;letter-spacing:-.01em;}
-.lead{font-size:clamp(14px,1.3vw,16px);color:var(--text-2);max-width:640px;}
+.h2{font-size:clamp(24px,3vw,34px);font-weight:900;line-height:1.4;color:var(--ink);margin-bottom:12px;}
+.lead{font-size:clamp(14px,1.3vw,16px);color:var(--ink-2);max-width:680px;}
 .center{text-align:center;}
 .center .lead{margin-inline:auto;}
 
-/* カード共通 */
-.card{
-  position:relative;border-radius:var(--radius);background:var(--glass);border:1px solid var(--line);
-  transition:transform .3s,border-color .3s,background .3s;
-}
-.card:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--glass-2);}
-/* マウス追従の光 */
-.glow{overflow:hidden;}
-.glow::after{
-  content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
-  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(62,230,193,.12),transparent 60%);
-}
-.glow:hover::after{opacity:1;}
-
-/* ═══ SERVICES ═════════════════════════════════════════ */
-.svc-list{display:grid;gap:clamp(28px,4vw,48px);margin-top:56px;}
-.svc{
-  display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
-  border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--glass);
-}
-.svc:nth-child(even) .svc-img{order:2;}
-.svc-img{position:relative;min-height:340px;background:#0a1a10;overflow:hidden;}
-.svc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s;}
-.svc:hover .svc-img img{transform:scale(1.04);}
-.svc-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(5,14,9,.1),rgba(5,14,9,.45)),
-             repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);
-}
-.svc-body{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;justify-content:center;}
-.svc-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;}
-.svc-num{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--bg-0);background:var(--grad);padding:4px 10px;border-radius:7px;}
-.svc-tag{font-size:12px;font-weight:700;color:var(--neon);}
-.svc-title{font-size:clamp(20px,2.2vw,26px);font-weight:900;color:var(--white);line-height:1.45;margin-bottom:14px;}
-.svc-desc{font-size:14px;color:var(--text-2);margin-bottom:22px;}
-.svc-desc strong{color:var(--neon);font-weight:700;}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.metric{padding:12px 10px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--line);text-align:center;}
-.metric b{display:block;font-family:var(--font-en);font-size:18px;font-weight:700;color:var(--neon);line-height:1.3;}
-.metric span{display:block;font-size:10.5px;color:var(--text-3);margin-top:3px;line-height:1.4;}
-.note{
-  margin-top:16px;padding:11px 14px;border-radius:10px;font-size:12px;line-height:1.7;
-  background:rgba(247,178,59,.08);border:1px solid rgba(247,178,59,.3);color:#F6D38F;
-}
+.card{border-radius:var(--radius);background:#fff;border:1px solid var(--line);}
 
 /* ═══ PAIN ═════════════════════════════════════════════ */
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
-.pain{padding:26px 24px;}
-.pain-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.25);margin-bottom:14px;}
-.pain h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;}
-.pain p{font-size:13px;color:var(--text-2);}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.pain{padding:22px 22px;}
+.pain h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.pain p{font-size:13px;color:var(--ink-2);}
+
+/* ═══ SERVICES ═════════════════════════════════════════ */
+.svc-list{display:grid;gap:24px;margin-top:32px;}
+.svc{
+  display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;
+  border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;
+}
+.svc:nth-child(even) .svc-img{order:2;}
+.svc-img{background:var(--bg-soft);padding:clamp(16px,2.4vw,28px);display:flex;align-items:center;justify-content:center;}
+.svc-img img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);box-shadow:0 6px 18px rgba(22,34,27,.08);}
+.svc-body{padding:clamp(24px,3.4vw,44px);display:flex;flex-direction:column;justify-content:center;}
+.svc-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.svc-num{font-size:13px;font-weight:700;color:#fff;background:var(--green);padding:2px 10px;border-radius:6px;}
+.svc-tag{font-size:13px;font-weight:700;color:var(--green);}
+.svc-title{font-size:clamp(19px,2vw,24px);font-weight:900;color:var(--ink);line-height:1.5;margin-bottom:12px;}
+.svc-desc{font-size:14px;color:var(--ink-2);margin-bottom:18px;}
+.svc-desc strong{color:var(--ink);}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.metric{padding:10px 8px;border-radius:8px;background:var(--bg-soft);border:1px solid var(--line);text-align:center;}
+.metric b{display:block;font-size:16px;font-weight:900;color:var(--green);line-height:1.3;}
+.metric span{display:block;font-size:11px;color:var(--ink-3);margin-top:2px;line-height:1.4;}
+.note{
+  margin-top:14px;padding:10px 14px;border-radius:8px;font-size:12px;line-height:1.7;
+  background:var(--note-bg);border:1px solid var(--note-line);color:var(--note-ink);
+}
 
 /* ═══ SOLUTION FLOW ════════════════════════════════════ */
-.flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;}
-.flow-line{
-  position:absolute;top:38px;left:12.5%;right:12.5%;height:2px;background:var(--line);overflow:hidden;
+.flow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;}
+.step{padding:20px 18px;}
+.step-no{
+  width:32px;height:32px;border-radius:50%;display:grid;place-items:center;margin-bottom:10px;
+  font-size:14px;font-weight:700;color:#fff;background:var(--green);
 }
-.flow-line::after{
-  content:'';position:absolute;top:0;left:-30%;width:30%;height:100%;
-  background:linear-gradient(90deg,transparent,var(--cyan),transparent);animation:flow 2.6s linear infinite;
-}
-@keyframes flow{to{left:100%;}}
-.step{position:relative;text-align:center;padding:0 6px;}
-.step-ic{
-  position:relative;width:76px;height:76px;margin:0 auto 16px;border-radius:22px;
-  display:grid;place-items:center;font-size:28px;
-  background:var(--bg-1);border:1px solid var(--line-2);box-shadow:0 0 0 6px var(--bg-0);
-}
-.step-ic::before{
-  content:'';position:absolute;inset:-1px;border-radius:22px;padding:1px;
-  background:conic-gradient(from var(--a,0deg),transparent 70%,var(--cyan));
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;animation:spin 4s linear infinite;
-}
-@property --a{syntax:'<angle>';inherits:false;initial-value:0deg;}
-@keyframes spin{to{--a:360deg;}}
-.step-label{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.1em;}
-.step h3{font-size:15px;font-weight:700;color:var(--white);margin:4px 0;}
-.step p{font-size:12.5px;color:var(--text-2);}
+.step h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.step p{font-size:13px;color:var(--ink-2);}
 
-.monthly{
-  margin-top:56px;padding:clamp(24px,4vw,44px);border-radius:22px;
-  background:linear-gradient(140deg,rgba(184,243,107,.08),rgba(62,230,193,.05) 60%,transparent),var(--bg-1);
-  border:1px solid var(--line-2);
-}
-.monthly-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
-.monthly h3{font-size:clamp(18px,2vw,22px);font-weight:900;color:var(--white);}
-.monthly-head p{font-size:13px;color:var(--text-2);max-width:520px;}
-.live{font-family:var(--font-mono);font-size:11px;color:var(--neon);display:flex;align-items:center;gap:8px;}
-.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-.action{padding:22px 20px;background:rgba(0,0,0,.25);}
-.action-no{font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--cyan);margin-bottom:10px;}
-.action h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;}
-.action p{font-size:12.5px;color:var(--text-2);}
-.bar{height:6px;border-radius:6px;background:rgba(255,255,255,.06);margin-top:16px;overflow:hidden;}
-.bar i{display:block;height:100%;width:0;border-radius:6px;background:var(--grad);transition:width 1.6s cubic-bezier(.2,.8,.2,1);}
-.in .bar i{width:var(--w);}
+.monthly{margin-top:28px;padding:clamp(22px,3.4vw,36px);border-radius:14px;background:var(--bg-tint);border:1px solid var(--line-2);}
+.monthly-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+.monthly h3{font-size:clamp(18px,2vw,22px);font-weight:900;color:var(--ink);}
+.monthly-head p{font-size:13px;color:var(--ink-2);max-width:520px;}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.action{padding:20px 18px;}
+.action-no{font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.action h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.action p{font-size:13px;color:var(--ink-2);}
 
 /* ═══ FEATURES ═════════════════════════════════════════ */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
-.feat{padding:28px 24px;display:flex;flex-direction:column;}
-.feat-ic{
-  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;margin-bottom:16px;
-  background:linear-gradient(140deg,rgba(184,243,107,.18),rgba(62,230,193,.1));border:1px solid var(--line-2);
-}
-.feat h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px;}
-.feat p{font-size:13px;color:var(--text-2);flex:1;}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
-.tag{font-family:var(--font-mono);font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:6px;color:var(--cyan);background:rgba(62,230,193,.08);border:1px solid rgba(62,230,193,.22);}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.feat{padding:24px 22px;display:flex;flex-direction:column;}
+.feat h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.feat p{font-size:13px;color:var(--ink-2);}
+.feat > p:first-of-type{flex:1;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;color:var(--green);background:var(--bg-tint);}
 
-/* ═══ COMPARISON ═══════════════════════════════════════ */
-.cmp-wrap{margin-top:48px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:18px;border:1px solid var(--line);}
-.cmp{width:100%;min-width:680px;border-collapse:collapse;font-size:13px;}
-.cmp th,.cmp td{padding:16px 14px;text-align:center;border-bottom:1px solid var(--line);}
-.cmp thead th{font-size:12px;font-weight:700;color:var(--text-2);background:rgba(0,0,0,.3);line-height:1.5;}
-.cmp th:first-child,.cmp td:first-child{
-  text-align:left;position:sticky;left:0;z-index:1;background:var(--bg-1);color:var(--white);font-weight:700;min-width:170px;
-}
-.cmp tr:last-child td{border-bottom:none;}
-.cmp .ours{background:rgba(62,230,193,.07);color:var(--white);font-weight:700;}
-.cmp thead .ours{background:linear-gradient(140deg,rgba(184,243,107,.25),rgba(62,230,193,.2));color:var(--white);}
-.ok{color:var(--neon);}
-.ng{color:var(--red);opacity:.85;}
-.mid{color:var(--amber);}
-.cmp-note{font-size:11px;color:var(--text-3);margin-top:12px;}
-.swipe-hint{display:none;font-size:11px;color:var(--text-3);margin-top:10px;font-family:var(--font-mono);}
+/* ═══ COMPARISON（事実ベース） ═══════════════════════════ */
+.cmp-wrap{margin-top:28px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;border:1px solid var(--line);background:#fff;}
+.cmp{width:100%;min-width:760px;border-collapse:collapse;font-size:13px;line-height:1.65;}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);}
+.cmp thead th{font-size:13px;font-weight:700;color:var(--ink);background:var(--bg-soft);}
+.cmp thead th small{display:block;font-size:11px;font-weight:500;color:var(--ink-3);margin-top:2px;}
+.cmp tbody th{font-weight:700;color:var(--ink);white-space:nowrap;}
+.cmp th:first-child,.cmp td:first-child{position:sticky;left:0;z-index:1;background:var(--bg-soft);min-width:130px;}
+.cmp td{color:var(--ink-2);width:29%;}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:none;}
+.cmp .ours{background:var(--bg-tint);color:var(--ink);}
+.cmp thead .ours{background:var(--green);color:#fff;}
+.cmp thead .ours small{color:rgba(255,255,255,.85);}
+.cmp-note{font-size:11px;color:var(--ink-3);margin-top:10px;}
+.swipe-hint{display:none;font-size:11px;color:var(--ink-3);margin-top:8px;}
 
 /* ═══ TARGET ═══════════════════════════════════════════ */
-.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
-.target{padding:30px 24px;}
-.target-ic{font-size:34px;margin-bottom:14px;}
-.target h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px;}
-.target p{font-size:13px;color:var(--text-2);}
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.target{padding:24px 22px;}
+.target h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.target p{font-size:13px;color:var(--ink-2);}
 
 /* ═══ HOW ══════════════════════════════════════════════ */
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;counter-reset:how;}
-.how-step{padding:30px 26px;}
-.how-no{
-  font-family:var(--font-en);font-size:46px;font-weight:700;line-height:1;margin-bottom:16px;
-  -webkit-text-stroke:1px var(--line-2);color:transparent;
-}
-.how-step:hover .how-no{-webkit-text-stroke:1px var(--cyan);}
-.how-step h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;}
-.how-step p{font-size:13px;color:var(--text-2);}
-.badge{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;background:rgba(184,243,107,.1);border:1px solid var(--line-2);color:var(--neon);}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
+.how-step{padding:24px 22px;}
+.how-no{font-size:32px;font-weight:900;line-height:1;margin-bottom:12px;color:var(--green);}
+.how-step h3{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.how-step p{font-size:13px;color:var(--ink-2);}
+.badge{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg-tint);color:var(--green);}
 
 /* ═══ SERVICE MENU ═════════════════════════════════════ */
-.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;}
-.theme{padding:22px 20px;}
-.theme h3{font-size:14px;font-weight:700;color:var(--white);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);}
-.theme ul{list-style:none;display:grid;gap:8px;}
-.theme li{display:flex;gap:8px;font-size:12.5px;color:var(--text-2);line-height:1.6;}
-.theme li::before{content:'›';color:var(--cyan);font-weight:700;}
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
-.plan{padding:26px 24px;display:flex;gap:16px;align-items:flex-start;}
-.plan-ic{flex-shrink:0;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:rgba(62,230,193,.1);border:1px solid rgba(62,230,193,.3);}
-.plan h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.plan p{font-size:12.5px;color:var(--text-2);}
+.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px;}
+.theme{padding:20px 18px;}
+.theme h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.theme ul{list-style:none;display:grid;gap:6px;}
+.theme li{display:flex;gap:8px;font-size:13px;color:var(--ink-2);line-height:1.6;}
+.theme li::before{content:'・';color:var(--green);font-weight:700;}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;}
+.plan{padding:22px 22px;}
+.plan h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.plan p{font-size:13px;color:var(--ink-2);}
 
 /* ═══ FAQ ══════════════════════════════════════════════ */
-.faq{max-width:820px;margin:48px auto 0;display:grid;gap:12px;}
-.faq-item{border-radius:14px;border:1px solid var(--line);background:var(--glass);overflow:hidden;transition:border-color .2s;}
+.faq{max-width:820px;margin:28px auto 0;display:grid;gap:10px;}
+.faq-item{border-radius:10px;border:1px solid var(--line);background:#fff;overflow:hidden;}
 .faq-item.open{border-color:var(--line-2);}
 .faq-q{
   width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:18px 22px;min-height:60px;background:none;border:none;cursor:pointer;text-align:left;
-  font-size:14.5px;font-weight:700;color:var(--white);
+  padding:16px 20px;min-height:58px;background:none;border:none;cursor:pointer;text-align:left;
+  font-size:14.5px;font-weight:700;color:var(--ink);
 }
-.faq-q::before{content:'Q';font-family:var(--font-mono);color:var(--cyan);margin-right:4px;}
+.faq-q::before{content:'Q';color:var(--green);margin-right:4px;}
 .faq-q span{flex:1;}
 .faq-plus{flex-shrink:0;position:relative;width:18px;height:18px;}
-.faq-plus::before,.faq-plus::after{content:'';position:absolute;top:8px;left:2px;right:2px;height:2px;background:var(--cyan);border-radius:2px;transition:transform .25s;}
+.faq-plus::before,.faq-plus::after{content:'';position:absolute;top:8px;left:2px;right:2px;height:2px;background:var(--green);border-radius:2px;transition:transform .2s;}
 .faq-plus::after{transform:rotate(90deg);}
 .faq-item.open .faq-plus::after{transform:rotate(0);}
-.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease;}
 .faq-item.open .faq-a{grid-template-rows:1fr;}
 .faq-a > div{overflow:hidden;}
-.faq-a p{padding:0 22px 20px 44px;font-size:13.5px;color:var(--text-2);}
+.faq-a p{padding:0 20px 18px 42px;font-size:13.5px;color:var(--ink-2);}
 
 /* ═══ CTA ══════════════════════════════════════════════ */
-.cta{text-align:center;overflow:hidden;}
+.cta{text-align:center;}
 .cta-box{
-  position:relative;max-width:960px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(20px,5vw,60px);
-  border-radius:28px;border:1px solid var(--line-2);overflow:hidden;
-  background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(62,230,193,.18),transparent 70%),var(--bg-1);
+  max-width:960px;margin:0 auto;padding:clamp(36px,5vw,56px) clamp(20px,5vw,56px);
+  border-radius:16px;border:1px solid var(--line-2);background:var(--bg-tint);
 }
-.cta-box::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(62,230,193,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(62,230,193,.07) 1px,transparent 1px);
-  background-size:32px 32px;mask-image:radial-gradient(ellipse at center,#000,transparent 75%);
-}
-.cta-box > *{position:relative;}
-.cta .lead{margin:0 auto 32px;}
+.cta .lead{margin:0 auto 24px;}
 .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
 
-/* ═══ FOOTER ═══════════════════════════════════════════ */
-footer{padding:48px clamp(16px,4vw,40px) 40px;border-top:1px solid var(--line);text-align:center;}
-.footer-logo{font-weight:700;color:var(--white);margin-bottom:10px;}
-.footer-info{font-style:normal;font-size:12px;color:var(--text-3);line-height:1.9;}
-.footer-info a{color:var(--neon);text-decoration:none;}
-.copy{font-size:11px;color:var(--text-3);margin-top:18px;opacity:.7;}
+/* ═══ FOOTER（唯一の濃色エリア） ═════════════════════════ */
+footer{padding:40px clamp(16px,4vw,40px) 36px;background:var(--dark);text-align:center;}
+.footer-logo{font-weight:700;color:#fff;margin-bottom:10px;}
+.footer-info{font-style:normal;font-size:12px;color:rgba(255,255,255,.72);line-height:1.9;}
+.footer-info a{color:#fff;}
+.copy{font-size:11px;color:rgba(255,255,255,.55);margin-top:16px;}
 
 /* ═══ MOBILE STICKY CTA ════════════════════════════════ */
 .sticky-cta{
   display:none;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:90;
-  transform:translateY(140%);transition:transform .35s;
+  transform:translateY(140%);transition:transform .25s;
 }
 .sticky-cta.show{transform:none;}
-.sticky-cta .btn{width:100%;}
+.sticky-cta .btn{width:100%;box-shadow:0 4px 14px rgba(22,34,27,.18);}
 
 /* ═══ MODAL ════════════════════════════════════════════ */
 .modal-overlay{
   position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;
-  background:rgba(2,8,5,.75);backdrop-filter:blur(6px);
-  opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;
+  background:rgba(18,38,27,.5);
+  opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;
 }
 .modal-overlay.show{opacity:1;visibility:visible;}
 .modal{
   position:relative;width:100%;max-width:540px;max-height:calc(100svh - 32px);overflow-y:auto;
-  padding:36px;border-radius:20px;background:var(--bg-1);border:1px solid var(--line-2);
-  box-shadow:0 30px 80px rgba(0,0,0,.6);transform:translateY(20px);transition:transform .3s;
+  padding:32px;border-radius:14px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 20px 50px rgba(18,38,27,.25);
 }
-.modal-overlay.show .modal{transform:none;}
 .modal-close{
-  position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:10px;
-  background:var(--glass);border:1px solid var(--line);color:var(--text);font-size:18px;cursor:pointer;
+  position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:8px;
+  background:#fff;border:1px solid var(--line);color:var(--ink);font-size:18px;cursor:pointer;
 }
-.modal-title{font-size:22px;font-weight:900;color:var(--white);margin-bottom:6px;}
-.modal-sub{font-size:13px;color:var(--text-2);margin-bottom:24px;}
-.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
-.fl{font-size:12px;font-weight:700;color:var(--text);}
-.req{color:var(--cyan);margin-left:4px;}
+.modal-title{font-size:21px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.modal-sub{font-size:13px;color:var(--ink-2);margin-bottom:22px;}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.fl{font-size:12px;font-weight:700;color:var(--ink);}
+.req{color:var(--red);margin-left:4px;}
 .fi{
-  width:100%;min-height:50px;padding:12px 14px;border-radius:10px;
-  font-family:inherit;font-size:16px;color:var(--white);
-  background:rgba(0,0,0,.3);border:1px solid var(--line-2);outline:none;transition:border-color .2s,box-shadow .2s;
+  width:100%;min-height:48px;padding:11px 14px;border-radius:8px;
+  font-family:inherit;font-size:16px;color:var(--ink);
+  background:#fff;border:1px solid var(--line-2);outline:none;transition:border-color .15s,box-shadow .15s;
 }
-.fi::placeholder{color:var(--text-3);}
-.fi:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(62,230,193,.15);}
-select.fi{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--cyan) 50%),linear-gradient(135deg,var(--cyan) 50%,transparent 50%);background-position:calc(100% - 20px) 22px,calc(100% - 15px) 22px;background-size:5px 5px;background-repeat:no-repeat;}
-select.fi option{background:var(--bg-1);color:var(--white);}
+.fi::placeholder{color:#9AA59D;}
+.fi:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(31,107,67,.15);}
+select.fi{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--green) 50%),linear-gradient(135deg,var(--green) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat;}
 textarea.fi{min-height:100px;resize:vertical;}
 .form-submit{width:100%;margin-top:6px;}
 .form-submit:disabled{opacity:.6;cursor:not-allowed;}
-.form-note{font-size:11px;color:var(--text-3);text-align:center;margin-top:12px;}
+.form-note{font-size:11px;color:var(--ink-3);text-align:center;margin-top:12px;}
 .form-success{display:none;text-align:center;padding:24px 0;}
 .form-success-ic{
-  width:72px;height:72px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;font-size:32px;
-  background:rgba(184,243,107,.12);border:1px solid var(--line-2);
+  width:64px;height:64px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-size:28px;
+  color:var(--green);background:var(--bg-tint);
 }
-.form-success h3{font-size:18px;color:var(--neon);margin-bottom:8px;}
-.form-success p{font-size:13px;color:var(--text-2);}
-
-/* ═══ SCROLL REVEAL ════════════════════════════════════ */
-.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);}
-.js .reveal.in{opacity:1;transform:none;}
-.js .reveal[data-d="1"]{transition-delay:.08s;}
-.js .reveal[data-d="2"]{transition-delay:.16s;}
-.js .reveal[data-d="3"]{transition-delay:.24s;}
-.js .reveal[data-d="4"]{transition-delay:.32s;}
-.js .reveal[data-d="5"]{transition-delay:.40s;}
+.form-success h3{font-size:18px;color:var(--green);margin-bottom:8px;}
+.form-success p{font-size:13px;color:var(--ink-2);}
 
 /* ═══ RESPONSIVE ═══════════════════════════════════════ */
 @media (max-width:1080px){
   .feat-grid{grid-template-columns:repeat(2,1fr);}
   .themes{grid-template-columns:repeat(2,1fr);}
-  .fb-1{left:-8px;}
-  .fb-2{right:-8px;}
 }
 @media (max-width:900px){
   :root{--nav-h:60px;}
   .nav-links{
     position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:0;
-    padding:8px 16px 20px;background:rgba(5,14,9,.97);border-bottom:1px solid var(--line);
-    transform:translateY(-12px);opacity:0;visibility:hidden;transition:all .25s;
+    padding:8px 16px 20px;background:#fff;border-bottom:1px solid var(--line);
+    opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;
   }
-  .nav.open .nav-links{transform:none;opacity:1;visibility:visible;}
+  .nav.open .nav-links{opacity:1;visibility:visible;}
   .nav-links a{display:block;padding:14px 4px;font-size:15px;border-bottom:1px solid var(--line);}
   .nav-burger{display:block;}
-  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 36px);}
+  .hero{padding-top:calc(var(--nav-h) + 32px);}
   .hero-grid{grid-template-columns:1fr;}
-  .hero-catch{font-size:clamp(26px,5.6vw,46px);}
-  .console{transform:none;}
   .svc{grid-template-columns:1fr;}
   .svc:nth-child(even) .svc-img{order:0;}
-  .svc-img{min-height:0;aspect-ratio:16/10;}
   .pain-grid{grid-template-columns:repeat(2,1fr);}
-  .flow{grid-template-columns:repeat(2,1fr);row-gap:36px;}
-  .flow-line{display:none;}
+  .flow{grid-template-columns:repeat(2,1fr);}
   .actions{grid-template-columns:1fr;}
   .target-grid,.how{grid-template-columns:1fr;}
   .plans{grid-template-columns:1fr;}
@@ -590,34 +404,55 @@ textarea.fi{min-height:100px;resize:vertical;}
 @media (max-width:560px){
   .nav-logo-sub{display:none;}
   .pc-br{display:none;}
-  .nav .btn-sm{padding:0 14px;font-size:12px;}
-  .hero-catch{font-size:min(6.8vw,34px);}
+  .nav .btn-sm{padding:0 12px;font-size:12px;}
+  .hero-catch{font-size:min(6.8vw,32px);}
   .hero-cta .btn{width:100%;}
   .hero-stats{gap:8px;}
-  .stat{padding:12px 10px;}
+  .stat{padding:10px;}
   .stat-label{font-size:10px;}
-  .float-badge{padding:8px 10px;}
-  .float-badge b{font-size:15px;}
-  .fb-1{top:12%;left:6px;}
-  .fb-2{bottom:auto;top:52%;right:6px;}
-  .console-log{font-size:11px;min-height:88px;}
-  .pain-grid,.feat-grid,.themes{grid-template-columns:1fr;}
-  .metric b{font-size:16px;}
-  .faq-q{padding:16px;font-size:14px;}
-  .faq-a p{padding:0 16px 18px 36px;}
-  .modal{padding:28px 20px;}
+  .pain-grid,.feat-grid,.themes,.flow{grid-template-columns:1fr;}
+  .metric b{font-size:15px;}
+  .faq-q{padding:14px 16px;font-size:14px;}
+  .faq-a p{padding:0 16px 16px 34px;}
+  .modal{padding:26px 18px;}
   .cta-row .btn{width:100%;}
 }
 @media (max-width:380px){
   .nav-logo-name{font-size:12px;}
   .nav .btn-sm{display:none;}
 }
+/* ═══ ANIMATION（控えめ・余白を作らない） ═══════════════════ */
+/* ヒーロー：読み込み時に順番に表示 */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:none;}}
+.hero-grid > div > *{animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both;}
+.hero-grid > div > :nth-child(2){animation-delay:.08s;}
+.hero-grid > div > :nth-child(3){animation-delay:.16s;}
+.hero-grid > div > :nth-child(4){animation-delay:.24s;}
+.hero-grid > div > :nth-child(5){animation-delay:.32s;}
+.hero-shot{animation:fadeLeft .8s .15s cubic-bezier(.2,.7,.2,1) both;}
 
-/* 動きを減らす設定のユーザーにはアニメーションを停止 */
+/* スクロール表示：画面に1pxでも入った時点で開始し、短時間で完了 */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease;transition-delay:calc(var(--i,0) * 70ms);}
+.js .rv.in{opacity:1;transform:none;}
+
+/* ホバー：カードが少し浮く */
+.card,.svc{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}
+.card:hover,.svc:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(22,34,27,.08);border-color:var(--line-2);}
+.monthly .card:hover{box-shadow:0 8px 18px rgba(22,34,27,.06);}
+.svc-img img{transition:transform .5s ease;}
+.svc:hover .svc-img img{transform:scale(1.02);}
+.hero-shot img{transition:transform .4s ease,box-shadow .4s ease;}
+.hero-shot img:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(22,34,27,.16);}
+.btn{transition:background-color .15s,border-color .15s,transform .15s;}
+.btn:hover{transform:translateY(-1px);}
+.btn:active{transform:none;}
+.uniq li{transition:border-color .2s,color .2s;}
+.uniq li:hover{border-color:var(--green);color:var(--green);}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
-  .js .reveal{opacity:1;transform:none;}
-  .bar i{width:var(--w);}
+  .js .rv{opacity:1;transform:none;}
 }
 </style>
 </head>
@@ -650,78 +485,62 @@ textarea.fi{min-height:100px;resize:vertical;}
 <main>
 <!-- ═══ HERO ═══ -->
 <section class="hero" aria-label="ファーストビュー">
-  <canvas id="neural" aria-hidden="true"></canvas>
   <div class="hero-grid">
     <div>
-      <p class="chip reveal"><span class="chip-dot"></span>AI AGENT FOR GX ・ 中堅・中小企業向け</p>
-      <h1 class="reveal" data-d="1">
-        <span class="hero-catch"><span class="nowrap">GX担当者がいない会社の、</span><br><span class="grad-text">GX担当者になる。</span></span>
+      <p class="chip">中堅・中小企業向け GX実務AIエージェント</p>
+      <h1>
+        <span class="hero-catch"><span class="nowrap">GX担当者がいない会社の、</span><br><span class="accent">GX担当者になる。</span></span>
         <span class="hero-sub">省エネ診断・GX推進策・補助金申請・CDP開示準備を、<br class="pc-br">AIエージェントが一気通貫で自動化。</span>
       </h1>
-      <ul class="hero-points reveal" data-d="2">
-        <li><span class="ic">✓</span><span><strong>毎月の優先アクションを自動提示。</strong>何から手を付けるか迷いません。</span></li>
-        <li><span class="ic">✓</span><span><strong>補助金の締切を自動通知。</strong>申請機会を取りこぼしません。</span></li>
-        <li><span class="ic">✓</span><span><strong>専門人材は不要。</strong>コンサル費用と社内工数を大幅に削減します。</span></li>
+      <ul class="hero-points">
+        <li><span class="ic" aria-hidden="true">✓</span><span><strong>毎月の優先アクションを自動提示。</strong>何から手を付けるか迷いません。</span></li>
+        <li><span class="ic" aria-hidden="true">✓</span><span><strong>補助金の締切を自動通知。</strong>申請機会を取りこぼしません。</span></li>
+        <li><span class="ic" aria-hidden="true">✓</span><span><strong>専門人材は不要。</strong>コンサル費用と社内工数を大幅に削減します。</span></li>
       </ul>
-      <div class="hero-cta reveal" data-d="3">
-        <button class="btn btn-primary" data-open-modal>無料診断を試す <span class="arrow">→</span></button>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-open-modal>無料診断を試す</button>
         <a class="btn btn-ghost" href="#services">サービスを見る</a>
       </div>
-      <div class="hero-stats reveal" data-d="4" aria-label="サービス指標">
-        <div class="stat"><div class="stat-num grad-text"><span data-count="3">0</span><small>分</small></div><div class="stat-label">月次データ入力</div></div>
-        <div class="stat"><div class="stat-num grad-text"><span data-count="4">0</span><small>機能</small></div><div class="stat-label">一気通貫で自動化</div></div>
-        <div class="stat"><div class="stat-num grad-text">即日</div><div class="stat-label">診断・提案が完了</div></div>
+      <div class="hero-stats" aria-label="サービス指標">
+        <div class="stat"><div class="stat-num">3<small>分</small></div><div class="stat-label">月次データ入力</div></div>
+        <div class="stat"><div class="stat-num">4<small>機能</small></div><div class="stat-label">一気通貫で自動化</div></div>
+        <div class="stat"><div class="stat-num">即日</div><div class="stat-label">診断・提案が完了</div></div>
       </div>
     </div>
 
-    <div class="hero-visual reveal" data-d="2" aria-hidden="true">
-      <div class="float-badge fb-1"><span>📉</span><div><b class="grad-text">−18.4%</b><small>CO₂削減ポテンシャル</small></div></div>
-      <div class="float-badge fb-2"><span>💰</span><div><b class="grad-text">3件</b><small>申請可能な補助金</small></div></div>
-      <div class="console">
-        <div class="console-bar"><i></i><i></i><i></i><span>offemission-agent — GHG diagnosis</span></div>
-        <div class="console-screen">
-          <img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-02-ghg.png" alt="" fetchpriority="high">
-          <div class="scanline"></div>
-        </div>
-        <div class="console-log" id="consoleLog"></div>
-      </div>
-    </div>
+    <figure class="hero-shot">
+      <img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-02-ghg.png" alt="OffEmission AI Agentの実際の画面：GHG排出量の内訳とAIによる削減施策の提案" fetchpriority="high">
+      <figcaption>実際の画面：排出量の内訳とAIによる施策提案</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ═══ TICKER ═══ -->
-<div class="ticker" aria-label="OffEmission AI Agentの独自機能">
-  <div class="ticker-track">
-    <span class="ticker-item">毎月のアクション3つを自動提案</span>
-    <span class="ticker-item">補助金締切カレンダー通知</span>
-    <span class="ticker-item">補助金申請書をAIが即日生成</span>
-    <span class="ticker-item">経営者向け月次サマリー自動送付</span>
-    <span class="ticker-item">ROI・投資回収期間を自動試算</span>
-    <span class="ticker-item">CDP回答書をWord形式で出力</span>
-    <span class="ticker-item" aria-hidden="true">毎月のアクション3つを自動提案</span>
-    <span class="ticker-item" aria-hidden="true">補助金締切カレンダー通知</span>
-    <span class="ticker-item" aria-hidden="true">補助金申請書をAIが即日生成</span>
-    <span class="ticker-item" aria-hidden="true">経営者向け月次サマリー自動送付</span>
-    <span class="ticker-item" aria-hidden="true">ROI・投資回収期間を自動試算</span>
-    <span class="ticker-item" aria-hidden="true">CDP回答書をWord形式で出力</span>
-  </div>
+<!-- ═══ 独自機能 ═══ -->
+<div class="uniq" aria-label="OffEmission AI Agentの独自機能">
+  <ul>
+    <li>毎月のアクション3つを自動提案</li>
+    <li>補助金締切カレンダー通知</li>
+    <li>補助金申請書をAIが即日生成</li>
+    <li>経営者向け月次サマリー自動送付</li>
+    <li>ROI・投資回収期間を自動試算</li>
+    <li>CDP回答書をWord形式で出力</li>
+  </ul>
 </div>
 
 <!-- ═══ PAIN ═══ -->
 <section class="alt" aria-labelledby="pain-title">
   <div class="inner">
     <div class="center">
-      <p class="eyebrow reveal">CHALLENGES</p>
-      <h2 class="h2 reveal" id="pain-title">GX推進、こんなお悩みはありませんか？</h2>
-      <p class="lead reveal">止まっている原因は「意欲」ではなく「実務設計」です。AIエージェントがまとめて解決します。</p>
+      <h2 class="h2" id="pain-title">GX推進、こんなお悩みはありませんか？</h2>
+      <p class="lead">止まっている原因は「意欲」ではなく「実務設計」です。AIエージェントがまとめて解決します。</p>
     </div>
     <div class="pain-grid">
-      <article class="card glow pain reveal" data-d="1"><div class="pain-ic">🤔</div><h3>何から始めればよいかわからない</h3><p>GX推進を指示されたが、具体的な手順や優先順位がわからず止まっている。</p></article>
-      <article class="card glow pain reveal" data-d="2"><div class="pain-ic">📊</div><h3>排出量算定が属人化している</h3><p>Excel管理で担当者に依存。開示に使えるデータが整っていない。</p></article>
-      <article class="card glow pain reveal" data-d="3"><div class="pain-ic">🔁</div><h3>施策が「やりっぱなし」になる</h3><p>施策を決めても、実行・効果測定・次のアクションにつながらない。</p></article>
-      <article class="card glow pain reveal" data-d="1"><div class="pain-ic">💹</div><h3>費用対効果を説明できない</h3><p>環境投資のROIが不明で、経営層の承認が取れない。</p></article>
-      <article class="card glow pain reveal" data-d="2"><div class="pain-ic">👥</div><h3>専門人材・コンサル費用が高い</h3><p>外部コンサルは年間数百万円規模。専門人材の採用も難しい。</p></article>
-      <article class="card glow pain reveal" data-d="3"><div class="pain-ic">📋</div><h3>補助金を活用しきれていない</h3><p>使える補助金がわからず、申請書類の作成にも大きな工数がかかる。</p></article>
+      <article class="card pain"><h3>何から始めればよいかわからない</h3><p>GX推進を指示されたが、具体的な手順や優先順位がわからず止まっている。</p></article>
+      <article class="card pain"><h3>排出量算定が属人化している</h3><p>Excel管理で担当者に依存。開示に使えるデータが整っていない。</p></article>
+      <article class="card pain"><h3>施策が「やりっぱなし」になる</h3><p>施策を決めても、実行・効果測定・次のアクションにつながらない。</p></article>
+      <article class="card pain"><h3>費用対効果を説明できない</h3><p>環境投資のROIが不明で、経営層の承認が取れない。</p></article>
+      <article class="card pain"><h3>専門人材・コンサル費用が高い</h3><p>外部コンサルは年間数百万円規模。専門人材の採用も難しい。</p></article>
+      <article class="card pain"><h3>補助金を活用しきれていない</h3><p>使える補助金がわからず、申請書類の作成にも大きな工数がかかる。</p></article>
     </div>
   </div>
 </section>
@@ -729,13 +548,12 @@ textarea.fi{min-height:100px;resize:vertical;}
 <!-- ═══ SERVICES ═══ -->
 <section id="services" aria-labelledby="svc-title">
   <div class="inner">
-    <p class="eyebrow reveal">OUR SERVICES</p>
-    <h2 class="h2 reveal" id="svc-title">4つのAIソリューション</h2>
-    <p class="lead reveal">月次のエネルギー管理から、GX診断、CDP開示準備、補助金申請まで。ひとつのAIエージェントがつなげて実行します。</p>
+    <h2 class="h2" id="svc-title">4つのAIソリューション</h2>
+    <p class="lead">月次のエネルギー管理から、GX診断、CDP開示準備、補助金申請まで。ひとつのAIエージェントがつなげて実行します。</p>
 
     <div class="svc-list">
       <!-- 01 -->
-      <article class="svc reveal">
+      <article class="svc">
         <div class="svc-img"><img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-01-input.png" alt="光熱費データ入力とGHG排出量算定の画面" loading="lazy"></div>
         <div class="svc-body">
           <div class="svc-head"><span class="svc-num">01</span><span class="svc-tag">月次エネルギー管理</span></div>
@@ -750,7 +568,7 @@ textarea.fi{min-height:100px;resize:vertical;}
       </article>
 
       <!-- 02 -->
-      <article class="svc reveal">
+      <article class="svc">
         <div class="svc-img"><img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-02-ghg.png" alt="GHG排出量の内訳とAI施策提案の画面" loading="lazy"></div>
         <div class="svc-body">
           <div class="svc-head"><span class="svc-num">02</span><span class="svc-tag">GX診断・ロードマップ</span></div>
@@ -765,7 +583,7 @@ textarea.fi{min-height:100px;resize:vertical;}
       </article>
 
       <!-- 03 -->
-      <article class="svc reveal">
+      <article class="svc">
         <div class="svc-img"><img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-03-cdp.png" alt="CDP開示準備支援の画面" loading="lazy"></div>
         <div class="svc-body">
           <div class="svc-head"><span class="svc-num">03</span><span class="svc-tag">CDP開示準備支援</span></div>
@@ -776,15 +594,15 @@ textarea.fi{min-height:100px;resize:vertical;}
             <div class="metric"><b>Word</b><span>即日出力</span></div>
             <div class="metric"><b>取引先</b><span>開示資料対応</span></div>
           </div>
-          <p class="note">⚠️ 対応範囲：CDP Awareness〜Disclosure（低〜中スコア）の開示準備。CDP B以上・SBTi正式申請にはScope3の精緻な算定が別途必要です。</p>
+          <p class="note">対応範囲：CDP Awareness〜Disclosure（低〜中スコア）の開示準備。CDP B以上・SBTi正式申請にはScope3の精緻な算定が別途必要です。</p>
         </div>
       </article>
 
       <!-- 04 -->
-      <article class="svc reveal">
+      <article class="svc">
         <div class="svc-img"><img src="https://raw.githubusercontent.com/OffEmission/gx-automation-ai/main/sc-04-subsidy.png" alt="補助金申請書類の自動生成画面" loading="lazy"></div>
         <div class="svc-body">
-          <div class="svc-head"><span class="svc-num">04</span><span class="svc-tag">補助金申請支援 ・ 独自機能</span></div>
+          <div class="svc-head"><span class="svc-num">04</span><span class="svc-tag">補助金申請支援（独自機能）</span></div>
           <h3 class="svc-title">補助金申請書類を、<br>AIが即日自動生成</h3>
           <p class="svc-desc">使える補助金をAIが自動判定。企業情報を入力するだけで、省エネ・IT導入・ものづくり補助金などの申請書類を即日生成し、.docx形式でダウンロードできます。締切カレンダーで申請機会を逃さず、申請代行にも対応します。</p>
           <div class="metrics">
@@ -802,44 +620,36 @@ textarea.fi{min-height:100px;resize:vertical;}
 <section class="alt" aria-labelledby="flow-title">
   <div class="inner">
     <div class="center">
-      <p class="eyebrow reveal">HOW IT WORKS</p>
-      <h2 class="h2 reveal" id="flow-title">データを入れるだけ。あとはAIが動きます。</h2>
-      <p class="lead reveal">診断から施策提案、申請書類・レポートの出力まで、AIエージェントが自動で実行します。</p>
+      <h2 class="h2" id="flow-title">データを入れるだけ。あとはAIが動きます。</h2>
+      <p class="lead">診断から施策提案、申請書類・レポートの出力まで、AIエージェントが自動で実行します。</p>
     </div>
-    <div class="flow">
-      <div class="flow-line" aria-hidden="true"></div>
-      <div class="step reveal" data-d="1"><div class="step-ic">📥</div><div class="step-label">STEP 01</div><h3>データ入力</h3><p>光熱費明細・設備情報を入力</p></div>
-      <div class="step reveal" data-d="2"><div class="step-ic">📊</div><div class="step-label">STEP 02</div><h3>排出量の自動算定</h3><p>AIが即時に算定・可視化</p></div>
-      <div class="step reveal" data-d="3"><div class="step-ic">💡</div><div class="step-label">STEP 03</div><h3>施策・ROI提案</h3><p>最適な施策と補助金を提案</p></div>
-      <div class="step reveal" data-d="4"><div class="step-ic">📄</div><div class="step-label">STEP 04</div><h3>書類・レポート出力</h3><p>申請書・開示資料をワンクリック生成</p></div>
-    </div>
+    <ol class="flow">
+      <li class="card step"><div class="step-no">1</div><h3>データ入力</h3><p>光熱費明細・設備情報を入力</p></li>
+      <li class="card step"><div class="step-no">2</div><h3>排出量の自動算定</h3><p>AIが即時に算定・可視化</p></li>
+      <li class="card step"><div class="step-no">3</div><h3>施策・ROI提案</h3><p>最適な施策と補助金を提案</p></li>
+      <li class="card step"><div class="step-no">4</div><h3>書類・レポート出力</h3><p>申請書・開示資料をワンクリック生成</p></li>
+    </ol>
 
-    <div class="monthly reveal" aria-label="毎月のアクション提案機能">
+    <div class="monthly" aria-label="毎月のアクション提案機能">
       <div class="monthly-head">
-        <div>
-          <p class="live"><span class="chip-dot"></span>MONTHLY ACTIONS</p>
-          <h3>ログインするたびに、「今月やること」が届く</h3>
-        </div>
+        <h3>ログインするたびに、「今月やること」が届く</h3>
         <p>数字を見せるだけで終わらず、毎月3つの具体的なアクションを優先度付きで提示します。</p>
       </div>
       <div class="actions">
         <div class="card action">
-          <div class="action-no">ACTION 01 ・ 優先度 高</div>
+          <div class="action-no">アクション1｜優先度 高</div>
           <h4>今月の最優先省エネ施策</h4>
           <p>ROI・投資回収期間付きで、どこを直せば最もコストが下がるかを提示します。</p>
-          <div class="bar"><i style="--w:92%"></i></div>
         </div>
         <div class="card action">
-          <div class="action-no">ACTION 02 ・ 締切あり</div>
+          <div class="action-no">アクション2｜締切あり</div>
           <h4>申請できる補助金</h4>
           <p>締切が近い補助金を通知。申請書はその場でAIが生成します。</p>
-          <div class="bar"><i style="--w:74%"></i></div>
         </div>
         <div class="card action">
-          <div class="action-no">ACTION 03 ・ レポート</div>
+          <div class="action-no">アクション3｜レポート</div>
           <h4>先月比の増減原因</h4>
           <p>排出量が増減した理由を自動分析。経営会議の報告資料にそのまま使えます。</p>
-          <div class="bar"><i style="--w:58%"></i></div>
         </div>
       </div>
     </div>
@@ -849,45 +659,38 @@ textarea.fi{min-height:100px;resize:vertical;}
 <!-- ═══ FEATURES ═══ -->
 <section id="features" aria-labelledby="feat-title">
   <div class="inner">
-    <p class="eyebrow reveal">FEATURES</p>
-    <h2 class="h2 reveal" id="feat-title">AIエージェントの主要機能</h2>
-    <p class="lead reveal">GX実務に必要な機能を、ひとつのAIエージェントが担います。</p>
+    <h2 class="h2" id="feat-title">AIエージェントの主要機能</h2>
+    <p class="lead">GX実務に必要な機能を、ひとつのAIエージェントが担います。</p>
     <div class="feat-grid">
-      <article class="card glow feat reveal" data-d="1">
-        <div class="feat-ic">📊</div>
+      <article class="card feat">
         <h3>GHG排出量の自動算定</h3>
         <p>エネルギーデータから環境省の排出係数（最新年度版）に準拠して自動算定。拠点別・排出源別の内訳まで即時に可視化します。</p>
         <div class="tags"><span class="tag">Scope1・2</span><span class="tag">環境省係数準拠</span><span class="tag">拠点別分析</span></div>
       </article>
-      <article class="card glow feat reveal" data-d="2">
-        <div class="feat-ic">🧭</div>
+      <article class="card feat">
         <h3>脱炭素ロードマップ自動生成</h3>
         <p>業種・設備特性に応じた施策を優先度順に提案。ROI・投資回収期間付きの年度別ロードマップを生成します。</p>
         <div class="tags"><span class="tag">施策提案</span><span class="tag">ROI試算</span><span class="tag">経営層向け</span></div>
       </article>
-      <article class="card glow feat reveal" data-d="3">
-        <div class="feat-ic">📝</div>
+      <article class="card feat">
         <h3>補助金申請書の自動生成</h3>
         <p>使える補助金をAIが判定し、申請書類を即日生成。締切カレンダー通知で申請機会を逃しません。</p>
         <div class="tags"><span class="tag">自動判定</span><span class="tag">即日生成</span><span class="tag">締切通知</span></div>
       </article>
-      <article class="card glow feat reveal" data-d="1">
-        <div class="feat-ic">🏭</div>
+      <article class="card feat">
         <h3>候補サプライヤーのAI調査</h3>
         <p>施策ごとに省エネ・再エネ設備メーカーをAIが調査し、各社の優位性を比較。発注判断をサポートします。</p>
         <div class="tags"><span class="tag">サプライヤー選定</span><span class="tag">比較分析</span></div>
       </article>
-      <article class="card glow feat reveal" data-d="2">
-        <div class="feat-ic">📄</div>
+      <article class="card feat">
         <h3>開示レポートの自動作成</h3>
         <p>診断結果・施策・ROIをまとめたPDFをワンクリックで出力。CDP開示準備、取引先向けワンペーパー、グリーンローン申請テンプレートにも対応。</p>
         <div class="tags"><span class="tag">PDF出力</span><span class="tag">CDP開示準備</span><span class="tag">取引先資料</span></div>
       </article>
-      <article class="card glow feat reveal" data-d="3">
-        <div class="feat-ic">🌱</div>
+      <article class="card feat">
         <h3>J-クレジット創出支援</h3>
         <p>省エネ・再エネ導入の削減実績をJ-クレジットとして認証・売却し、設備投資コストの一部を回収します。</p>
-        <p class="note">⚠️ 創出には外部の第三者検証が必要です。月額サブスク（継続伴走）にてご相談ください。</p>
+        <p class="note">創出には外部の第三者検証が必要です。月額サブスク（継続伴走）にてご相談ください。</p>
         <div class="tags"><span class="tag">J-クレジット</span><span class="tag">収益化</span></div>
       </article>
     </div>
@@ -897,31 +700,60 @@ textarea.fi{min-height:100px;resize:vertical;}
 <!-- ═══ COMPARISON ═══ -->
 <section id="comparison" class="alt" aria-labelledby="cmp-title">
   <div class="inner">
-    <p class="eyebrow reveal">COMPARISON</p>
-    <h2 class="h2 reveal" id="cmp-title">他のサービスとの比較</h2>
-    <p class="lead reveal">「実行支援」「補助金獲得」「毎月のアクション提示」の3つを、中堅・中小企業が使いやすい形でまとめて提供します。</p>
-    <div class="cmp-wrap reveal">
+    <h2 class="h2" id="cmp-title">他の選択肢との違い</h2>
+    <p class="lead">GXの外部支援は、主に「CO₂排出量の算定SaaS」と「GXコンサルティング会社」の2種類があります。それぞれの対応範囲・料金体系・提供方法を並べました。</p>
+    <div class="cmp-wrap">
       <table class="cmp">
         <thead>
           <tr>
-            <th scope="col">比較項目</th>
-            <th scope="col">CO₂管理<br>SaaS A</th>
-            <th scope="col">CO₂管理<br>SaaS B</th>
-            <th scope="col">大手<br>コンサル</th>
-            <th scope="col" class="ours">OffEmission<br>AI Agent</th>
+            <th scope="col">項目</th>
+            <th scope="col">CO₂排出量の算定SaaS<small>排出量の算定・可視化クラウド</small></th>
+            <th scope="col">GXコンサルティング会社<small>環境・脱炭素系のコンサル</small></th>
+            <th scope="col" class="ours">OffEmission AI Agent<small>本サービス</small></th>
           </tr>
         </thead>
         <tbody>
-          <tr><th scope="row">毎月のアクション自動提案</th><td class="ng">✕ なし</td><td class="ng">✕ なし</td><td class="mid">△ 会議時のみ</td><td class="ours ok">◎ 毎月自動提示</td></tr>
-          <tr><th scope="row">補助金申請書の自動生成</th><td class="ng">✕ なし</td><td class="ng">✕ なし</td><td class="mid">△ 別途費用</td><td class="ours ok">◎ AIが即日生成</td></tr>
-          <tr><th scope="row">省エネ診断（月次）</th><td class="ng">✕ なし</td><td class="ng">✕ なし</td><td class="mid">△ 訪問調査が必要</td><td class="ours ok">◎ AIで即日</td></tr>
-          <tr><th scope="row">GX推進策の生成</th><td class="mid">△ 一部対応</td><td class="mid">△ 一部対応</td><td class="ok">○ 個別対応（高額）</td><td class="ours ok">◎ ROI試算込み</td></tr>
-          <tr><th scope="row">中堅・中小企業への適性</th><td class="mid">△ 大手中心</td><td class="mid">△ 大手中心</td><td class="ng">✕ 費用面で困難</td><td class="ours ok">◎ メインターゲット</td></tr>
+          <tr>
+            <th scope="row">主な対応範囲</th>
+            <td>Scope1〜3の排出量算定、可視化、開示用データの整備</td>
+            <td>現状調査、削減計画・ロードマップ策定、開示対応を個別に設計</td>
+            <td class="ours">Scope1・2算定、省エネ施策提案、補助金申請書類の作成、CDP開示準備（Awareness〜Disclosure）</td>
+          </tr>
+          <tr>
+            <th scope="row">省エネ施策の提案</th>
+            <td>算定・可視化が中心で、施策提案は含まれないか一部に限られることが多い</td>
+            <td>訪問調査などをもとに担当者が個別に提案</td>
+            <td class="ours">光熱費データからAIが毎月提案。ROI・投資回収期間の試算付き</td>
+          </tr>
+          <tr>
+            <th scope="row">補助金申請</th>
+            <td>申請書類の作成は対象外のことが多い</td>
+            <td>別契約・別料金で対応する場合がある</td>
+            <td class="ours">AIが対象補助金を判定し、申請書類を.docxで生成。申請代行は別途相談</td>
+          </tr>
+          <tr>
+            <th scope="row">料金体系</th>
+            <td>月額・年額のライセンス料（利用ID数・拠点数で変動するのが一般的）</td>
+            <td>プロジェクト単位の見積り（年間数百万円規模になることもある）</td>
+            <td class="ours">無料診断あり。スポット（1件から）または月額サブスク</td>
+          </tr>
+          <tr>
+            <th scope="row">提供方法</th>
+            <td>Webツールを自社で操作</td>
+            <td>担当コンサルタントによる面談・訪問、報告書の納品</td>
+            <td class="ours">Webブラウザで入力し、AIが自動で算定・提案・書類作成。月額サブスクでは専門チームが伴走</td>
+          </tr>
+          <tr>
+            <th scope="row">社内に必要な体制</th>
+            <td>データを入力・管理する担当者</td>
+            <td>コンサルとの窓口となる担当者</td>
+            <td class="ours">光熱費明細を入力できれば利用可能。専門知識は不要</td>
+          </tr>
         </tbody>
       </table>
     </div>
     <p class="swipe-hint">← 横にスクロールできます →</p>
-    <p class="cmp-note">※ 当社調べ。各サービスの一般的な提供内容をもとに比較しています。</p>
+    <p class="cmp-note">※ 当社調べ。各カテゴリの一般的な提供内容をまとめたもので、個別のサービスによって異なります。</p>
   </div>
 </section>
 
@@ -929,25 +761,21 @@ textarea.fi{min-height:100px;resize:vertical;}
 <section aria-labelledby="target-title">
   <div class="inner">
     <div class="center">
-      <p class="eyebrow reveal">TARGET</p>
-      <h2 class="h2 reveal" id="target-title">業種・拠点を問わず、GXの実行を支援</h2>
-      <p class="lead reveal">製造業・建設業・物流・ホテルなど、中堅・中小企業を中心に幅広い業種に対応します。</p>
+      <h2 class="h2" id="target-title">業種・拠点を問わず、GXの実行を支援</h2>
+      <p class="lead">製造業・建設業・物流・ホテルなど、中堅・中小企業を中心に幅広い業種に対応します。</p>
     </div>
     <div class="target-grid">
-      <article class="card glow target reveal" data-d="1">
-        <div class="target-ic">🏭</div>
+      <article class="card target">
         <h3>製造業・中堅中小メーカー</h3>
         <p>熱処理・機械加工などエネルギー多消費工程の省エネ診断から、大手取引先からのサプライヤー開示要請への対応まで支援します。</p>
         <div class="tags"><span class="tag">サプライヤー開示</span><span class="tag">設備補助金</span><span class="tag">工場GHG算定</span></div>
       </article>
-      <article class="card glow target reveal" data-d="2">
-        <div class="target-ic">🏢</div>
+      <article class="card target">
         <h3>事業所・オフィス・店舗</h3>
         <p>本社・支店・店舗・商業施設の排出量を算定し、電力・空調・照明を中心とした省エネ施策を提案。多拠点の一元管理にも対応します。</p>
         <div class="tags"><span class="tag">多拠点管理</span><span class="tag">空調・照明</span><span class="tag">再エネ切替</span></div>
       </article>
-      <article class="card glow target reveal" data-d="3">
-        <div class="target-ic">🏛️</div>
+      <article class="card target">
         <h3>自治体・公共機関</h3>
         <p>庁舎・学校・病院など公共施設の排出量算定と削減計画を支援。カーボンニュートラル宣言の実務対応や交付金の活用判定まで対応します。</p>
         <div class="tags"><span class="tag">公共施設</span><span class="tag">省エネ診断</span><span class="tag">交付金活用</span></div>
@@ -960,25 +788,24 @@ textarea.fi{min-height:100px;resize:vertical;}
 <section id="how" class="alt" aria-labelledby="how-title">
   <div class="inner">
     <div class="center">
-      <p class="eyebrow reveal">HOW TO START</p>
-      <h2 class="h2 reveal" id="how-title">3ステップで始められます</h2>
-      <p class="lead reveal">まずは無料診断から。契約や費用は不要です。</p>
+      <h2 class="h2" id="how-title">3ステップで始められます</h2>
+      <p class="lead">まずは無料診断から。契約や費用は不要です。</p>
     </div>
     <div class="how">
-      <article class="card how-step reveal" data-d="1">
-        <div class="how-no">01</div>
+      <article class="card how-step">
+        <div class="how-no">1</div>
         <h3>無料診断</h3>
         <p>光熱費明細を入力するだけで、GHG排出量・削減施策・ROI・使える補助金をAIが診断。その場で結果を確認できます。</p>
         <span class="badge">即日・費用不要</span>
       </article>
-      <article class="card how-step reveal" data-d="2">
-        <div class="how-no">02</div>
+      <article class="card how-step">
+        <div class="how-no">2</div>
         <h3>支援範囲の合意</h3>
         <p>スポット対応（単発の申請書作成・レポート作成）か、月額サブスク（継続的なPDCA管理・開示対応）を選択し、対象拠点やKPIを決めます。</p>
         <span class="badge">スポット or 月額サブスク</span>
       </article>
-      <article class="card how-step reveal" data-d="3">
-        <div class="how-no">03</div>
+      <article class="card how-step">
+        <div class="how-no">3</div>
         <h3>AIエージェント稼働</h3>
         <p>毎月のアクション提案・補助金通知・レポート生成を自動で更新。経営者向けサマリーの毎月送付も可能です。</p>
         <span class="badge">即日スタート可能</span>
@@ -990,35 +817,32 @@ textarea.fi{min-height:100px;resize:vertical;}
 <!-- ═══ SERVICE MENU ═══ -->
 <section aria-labelledby="menu-title">
   <div class="inner">
-    <p class="eyebrow reveal">SERVICE MENU</p>
-    <h2 class="h2 reveal" id="menu-title">対応テーマと提供方法</h2>
-    <p class="lead reveal">GX推進に必要な実務テーマを幅広くカバーします。</p>
+    <h2 class="h2" id="menu-title">対応テーマと提供方法</h2>
+    <p class="lead">GX推進に必要な実務テーマを幅広くカバーします。</p>
     <div class="themes">
-      <div class="card theme reveal" data-d="1">
-        <h3>📊 排出量算定・管理</h3>
+      <div class="card theme">
+        <h3>排出量算定・管理</h3>
         <ul><li>Scope1・2 GHG排出量算定</li><li>Scope3 参考値算定</li><li>工場・事業所・拠点別GHG診断</li><li>CFP（カーボンフットプリント）算定</li><li>イベント・活動の排出量算定</li></ul>
       </div>
-      <div class="card theme reveal" data-d="2">
-        <h3>🧭 削減計画・ロードマップ</h3>
+      <div class="card theme">
+        <h3>削減計画・ロードマップ</h3>
         <ul><li>脱炭素ロードマップ策定</li><li>省エネ・再エネ施策提案</li><li>ROI・投資対効果試算</li><li>サプライヤー調査・選定支援</li><li>補助金・グリーンローン活用支援</li></ul>
       </div>
-      <div class="card theme reveal" data-d="3">
-        <h3>💰 収益化・開示対応</h3>
+      <div class="card theme">
+        <h3>収益化・開示対応</h3>
         <ul><li>J-クレジット創出・申請伴走（要相談）</li><li>カーボンオフセット活用</li><li>CDP開示準備支援（低〜中スコア）</li><li>取引先向け開示資料の生成</li></ul>
       </div>
-      <div class="card theme reveal" data-d="4">
-        <h3>👥 組織・実務の内製化</h3>
+      <div class="card theme">
+        <h3>組織・実務の内製化</h3>
         <ul><li>GX実務の内製化支援</li><li>現場従業員の省エネ行動支援</li><li>GXワークスペース導入</li></ul>
       </div>
     </div>
     <div class="plans">
-      <div class="card glow plan reveal" data-d="1">
-        <div class="plan-ic">⚡</div>
-        <div><h3>スポット対応（単発）</h3><p>補助金申請書・CDP回答書・GHG算定レポートなどを1件から依頼可能。「まず1件試したい」方に最適です。</p></div>
+      <div class="card plan">
+        <h3>スポット対応（単発）</h3><p>補助金申請書・CDP回答書・GHG算定レポートなどを1件から依頼可能。「まず1件試したい」方に最適です。</p>
       </div>
-      <div class="card glow plan reveal" data-d="2">
-        <div class="plan-ic">🤝</div>
-        <div><h3>月額サブスク（継続伴走）</h3><p>月次入力・アクション提案・補助金通知・CDP開示準備・J-クレジット収益化まで、AIと専門チームが一体で伴走します。</p></div>
+      <div class="card plan">
+        <h3>月額サブスク（継続伴走）</h3><p>月次入力・アクション提案・補助金通知・CDP開示準備・J-クレジット収益化まで、AIと専門チームが一体で伴走します。</p>
       </div>
     </div>
   </div>
@@ -1028,31 +852,30 @@ textarea.fi{min-height:100px;resize:vertical;}
 <section id="faq" class="alt" aria-labelledby="faq-title">
   <div class="inner">
     <div class="center">
-      <p class="eyebrow reveal">FAQ</p>
-      <h2 class="h2 reveal" id="faq-title">よくあるご質問</h2>
+      <h2 class="h2" id="faq-title">よくあるご質問</h2>
     </div>
     <div class="faq">
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>IT担当者がいなくても使えますか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>はい、専門知識は不要です。Webブラウザからデータを入力するだけで、AIが算定・提案・レポート生成を自動で行います。</p></div></div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>算定結果の精度はどのくらいですか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>環境省の排出係数（最新年度版）に準拠してScope1・2を算定します。社内管理やGX推進の入口として「まず現状を把握し、アクションを起こす」用途に最適です。外部開示や第三者検証が必要な場合は、月額サブスク（継続伴走）にてご相談ください。</p></div></div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>CDP・SBTiにはどこまで対応できますか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>CDP Awareness〜Disclosure（低〜中スコア）の開示準備支援が対応範囲です。CDP B以上を目指す場合やSBTi Near-term目標の正式申請には、Scope3の精緻な算定が別途必要です。個別にご相談ください。</p></div></div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>補助金申請まで対応してもらえますか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>AIによる補助金の自動判定と申請書類の自動生成（.docx形式）に対応しています。省エネ・IT導入・ものづくり補助金などが対象です。申請手続きの代行は、スポット対応または月額サブスクにてご相談ください。</p></div></div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>工場以外の事業所でも利用できますか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>はい。事業所・オフィス・店舗・商業施設など、あらゆる拠点に対応しています。電力・ガスなどのエネルギー使用量データがあれば診断できます。</p></div></div>
       </div>
-      <div class="faq-item reveal">
+      <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span>スポット（単発）で1件だけ依頼できますか？</span><i class="faq-plus" aria-hidden="true"></i></button>
         <div class="faq-a"><div><p>はい。月額契約なしで、補助金申請書・CDP回答書・GHG算定レポートを1件から依頼できます。お問い合わせフォームよりご相談ください。</p></div></div>
       </div>
@@ -1062,12 +885,11 @@ textarea.fi{min-height:100px;resize:vertical;}
 
 <!-- ═══ CTA ═══ -->
 <section class="cta" aria-labelledby="cta-title">
-  <div class="cta-box reveal">
-    <p class="eyebrow">GET STARTED</p>
-    <h2 class="h2" id="cta-title">GX推進の第一歩を、<br><span class="grad-text">AIエージェントと今日から。</span></h2>
+  <div class="cta-box">
+    <h2 class="h2" id="cta-title">GX推進の第一歩を、<br><span class="accent">AIエージェントと今日から。</span></h2>
     <p class="lead">光熱費明細を入力するだけで、GHG排出量・削減施策・ROI・使える補助金をその日のうちに診断します。契約不要でお試しいただけます。</p>
     <div class="cta-row">
-      <button class="btn btn-primary" data-open-modal>無料診断を試す <span class="arrow">→</span></button>
+      <button class="btn btn-primary" data-open-modal>無料診断を試す</button>
       <button class="btn btn-ghost" data-open-modal data-type="資料を請求したい">資料を請求する</button>
     </div>
   </div>
@@ -1087,7 +909,7 @@ textarea.fi{min-height:100px;resize:vertical;}
 
 <!-- ═══ MOBILE STICKY CTA ═══ -->
 <div class="sticky-cta" id="stickyCta">
-  <button class="btn btn-primary" data-open-modal>無料診断を試す <span class="arrow">→</span></button>
+  <button class="btn btn-primary" data-open-modal>無料診断を試す</button>
 </div>
 
 <!-- ═══ MODAL ═══ -->
@@ -1148,9 +970,8 @@ textarea.fi{min-height:100px;resize:vertical;}
 <script>
 (function(){
   'use strict';
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── NAV：スクロール時の背景・ハンバーガー ── */
+  /* ── NAV：スクロール時の境界線・ハンバーガー ── */
   var nav = document.getElementById('nav');
   var burger = document.getElementById('burger');
   var sticky = document.getElementById('stickyCta');
@@ -1170,128 +991,25 @@ textarea.fi{min-height:100px;resize:vertical;}
     a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
   });
 
-  /* ── スクロール表示アニメーション＋カウンター ── */
-  function countUp(el){
-    var target = +el.dataset.count, start = null, dur = 1200;
-    if(reduce){ el.textContent = target; return; }
-    function tick(t){
-      if(!start) start = t;
-      var p = Math.min((t - start) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-      if(p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  if('IntersectionObserver' in window){
+  /* ── スクロール表示（画面に入った瞬間に短く表示。待ち時間による空白を作らない） ── */
+  var targets = document.querySelectorAll(
+    '.inner > .h2, .inner > .lead, .center > *, .pain-grid > *, .svc, .flow > *, .monthly,' +
+    '.feat-grid > *, .cmp-wrap, .target-grid > *, .how > *, .themes > *, .plans > *, .faq-item, .cta-box'
+  );
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    targets.forEach(function(el){
+      var idx = Array.prototype.indexOf.call(el.parentElement.children, el);
+      if(el.matches('.pain-grid > *, .flow > *, .feat-grid > *, .target-grid > *, .how > *, .themes > *, .plans > *')){
+        el.style.setProperty('--i', idx % 4);
+      }
+      el.classList.add('rv');
+    });
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('in');
-          e.target.querySelectorAll('[data-count]').forEach(countUp);
-          io.unobserve(e.target);
-        }
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* ── カードのマウス追従グロー（PCのみ） ── */
-  if(window.matchMedia('(hover:hover)').matches){
-    document.querySelectorAll('.glow').forEach(function(card){
-      card.addEventListener('pointermove', function(e){
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
-  /* ── AIコンソールのタイピング演出 ── */
-  var log = document.getElementById('consoleLog');
-  var lines = [
-    ['<span class="k">&gt;</span> 光熱費データを読み込み中…', '<span class="ok">✓ 12か月分</span>'],
-    ['<span class="k">&gt;</span> Scope1・2 排出量を算定中…', '<span class="ok">✓ 完了</span>'],
-    ['<span class="k">&gt;</span> 削減施策とROIを試算中…', '<span class="ok">✓ 施策8件</span>'],
-    ['<span class="k">&gt;</span> 補助金をマッチング中…', '<span class="ok">✓ 3件該当</span>']
-  ];
-  function strip(h){ var d=document.createElement('div'); d.innerHTML=h; return d.textContent; }
-  function runConsole(){
-    if(reduce){ log.innerHTML = lines.map(function(l){return l[0]+' '+l[1];}).join('<br>'); return; }
-    var shown = [], i = 0;
-    function typeLine(){
-      if(i >= lines.length){ setTimeout(function(){ shown=[]; i=0; typeLine(); }, 2600); return; }
-      var full = strip(lines[i][0]), c = 0;
-      (function step(){
-        c++;
-        var partial = '<span class="k">&gt;</span> ' + full.slice(2, c + 2);
-        var view = shown.slice(-2).concat(partial + '<span class="caret"></span>');
-        log.innerHTML = view.join('<br>');
-        if(c < full.length - 2){ setTimeout(step, 38); }
-        else{
-          setTimeout(function(){
-            shown.push(lines[i][0] + ' ' + lines[i][1]);
-            log.innerHTML = shown.slice(-3).join('<br>') + '<span class="caret"></span>';
-            i++; setTimeout(typeLine, 500);
-          }, 450);
-        }
-      })();
-    }
-    typeLine();
-  }
-  runConsole();
-
-  /* ── ヒーロー背景：ニューラルネットワーク風パーティクル ── */
-  var cv = document.getElementById('neural');
-  var ctx = cv.getContext('2d');
-  var W, H, dpr, nodes = [], mouse = {x:-9999, y:-9999}, running = true, raf;
-  function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = cv.offsetWidth; H = cv.offsetHeight;
-    cv.width = W * dpr; cv.height = H * dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    var count = Math.round(Math.min(90, Math.max(32, W * H / 16000)));
-    nodes = [];
-    for(var k=0;k<count;k++){
-      nodes.push({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35, r:Math.random()*1.6+.6});
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    var maxD = W < 600 ? 95 : 130;
-    for(var a=0;a<nodes.length;a++){
-      var n = nodes[a];
-      if(!reduce){
-        n.x += n.vx; n.y += n.vy;
-        if(n.x<0||n.x>W) n.vx*=-1;
-        if(n.y<0||n.y>H) n.vy*=-1;
-        var mdx = n.x - mouse.x, mdy = n.y - mouse.y, md = Math.sqrt(mdx*mdx+mdy*mdy);
-        if(md < 140){ n.x += mdx/md*.6; n.y += mdy/md*.6; }
-      }
-      for(var b=a+1;b<nodes.length;b++){
-        var m = nodes[b], dx = n.x-m.x, dy = n.y-m.y, d = Math.sqrt(dx*dx+dy*dy);
-        if(d < maxD){
-          ctx.strokeStyle = 'rgba(62,230,193,' + (1 - d/maxD) * .28 + ')';
-          ctx.lineWidth = .7;
-          ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(m.x,m.y); ctx.stroke();
-        }
-      }
-      ctx.fillStyle = a % 5 === 0 ? 'rgba(184,243,107,.9)' : 'rgba(62,230,193,.7)';
-      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
-    }
-    if(running && !reduce) raf = requestAnimationFrame(draw);
-  }
-  resize(); draw();
-  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ resize(); if(reduce) draw(); }, 150); });
-  cv.parentElement.addEventListener('pointermove', function(e){ var r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
-  cv.parentElement.addEventListener('pointerleave', function(){ mouse.x = mouse.y = -9999; });
-  if('IntersectionObserver' in window && !reduce){
-    new IntersectionObserver(function(es){
-      var vis = es[0].isIntersecting;
-      if(vis && !running){ running = true; draw(); }
-      else if(!vis){ running = false; cancelAnimationFrame(raf); }
-    }).observe(cv);
+    }, {threshold:0, rootMargin:'0px 0px 40px 0px'});
+    targets.forEach(function(el){ io.observe(el); });
   }
 
   /* ── FAQ アコーディオン ── */
@@ -1309,9 +1027,8 @@ textarea.fi{min-height:100px;resize:vertical;}
     lastFocus = document.activeElement;
     modal.classList.add('show'); modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
-    var sel = document.getElementById('inquiry-type');
-    sel.value = type || '無料診断を試したい';
-    setTimeout(function(){ document.getElementById('company').focus(); }, 250);
+    document.getElementById('inquiry-type').value = type || '無料診断を試したい';
+    setTimeout(function(){ document.getElementById('company').focus(); }, 200);
   }
   function closeModal(){
     modal.classList.remove('show'); modal.setAttribute('aria-hidden','true');
